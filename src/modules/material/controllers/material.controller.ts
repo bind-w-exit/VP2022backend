@@ -21,15 +21,13 @@ export class MaterialController {
 
   @Post()
   createAction(@Body() createMaterialDto: CreateMaterialDto): Promise<Material>{
-    createMaterialDto.addDate = new Date();
     console.log(createMaterialDto);
     return this.materialService.create(createMaterialDto);
   }
 
   @Put(':id')
   updateAction(@Param('id') id: string, @Body() updateMaterialDto: UpdateMaterialDto) {
-    updateMaterialDto.id = Number(id);
-    return this.materialService.update(updateMaterialDto);
+    return this.materialService.update(id, updateMaterialDto);
   }
   
   @Delete(':id')

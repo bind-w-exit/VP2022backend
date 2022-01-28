@@ -17,15 +17,20 @@ export class MaterialService {
   }
 
   findOne(id: string): Promise<Material> {
-    return this.materialRepository.findOne(id); //findOneOrFail
+    return this.materialRepository.findOne(id);
   }
 
   create(createMaterialDto: CreateMaterialDto): Promise<Material> {
     return this.materialRepository.save(createMaterialDto);
   }
 
-  update(updateMaterialDto: UpdateMaterialDto): Promise<Material> {
-    return this.materialRepository.save(updateMaterialDto);
+  async update(id: string, updateMaterialDto: UpdateMaterialDto): Promise<Material> {
+    const entity = await this.materialRepository.findOne(id)
+    if (entity) {
+      entity.name = updateMaterialDto.name;
+      entity.price = updateMaterialDto.price;
+      return await this.materialRepository.save(entity);
+    }
   }
 
   async remove(id: string): Promise<void> {

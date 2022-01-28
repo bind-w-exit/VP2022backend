@@ -21,6 +21,6 @@ export class Material {
     type: "timestamp",
     nullable: false
   })
-  addDate: Date;
+  addDate?: Date;
 
 }

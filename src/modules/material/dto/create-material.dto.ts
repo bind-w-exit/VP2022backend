@@ -14,8 +14,4 @@ export class CreateMaterialDto {
   })
   price: number;
 
-  @ApiProperty({
-    description: 'Creation time',
-  })
-  addDate: Date;
 }

@@ -9,7 +9,6 @@ async function bootstrap() {
   .setTitle('Material')
   .setDescription('The materials API description')
   .setVersion('1.0')
-  .addTag('material')
   .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
