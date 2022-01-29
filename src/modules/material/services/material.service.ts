@@ -7,21 +7,22 @@ import { Material } from '../entities/material.entity';
 
 @Injectable()
 export class MaterialService {
+
   constructor(
     @InjectRepository(Material)
     private materialRepository: Repository<Material>,
   ) {}
 
-  findAll(): Promise<Material[]> {
-    return this.materialRepository.find();
+  async findAll(): Promise<Material[]> {
+    return await this.materialRepository.find();
   }
 
-  findOne(id: string): Promise<Material> {
-    return this.materialRepository.findOne(id);
+  async findOne(id: string): Promise<Material> {
+    return await this.materialRepository.findOne(id);
   }
 
-  create(createMaterialDto: CreateMaterialDto): Promise<Material> {
-    return this.materialRepository.save(createMaterialDto);
+  async create(createMaterialDto: CreateMaterialDto): Promise<Material> {
+    return await this.materialRepository.save(createMaterialDto);
   }
 
   async update(id: string, updateMaterialDto: UpdateMaterialDto): Promise<Material> {

@@ -2,15 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateMaterialDto {
   @ApiProperty({
-    description: 'Name of the material',
-    default: 'Матеріал'
+    description: 'Material name',
+    example: 'Гіпсокартон'
   })
   name: string;
 
   @ApiProperty({
-    description: 'The price of the material',
-    minimum: 1,
-    default: 1,
+    description: 'Material price',
+    example: 139.99
   })
   price: number;
 
